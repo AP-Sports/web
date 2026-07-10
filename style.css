@@ -1,3 +1,7 @@
+main{
+     padding-top: 71px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -16,12 +20,16 @@ body {
     overflow-x: hidden;
 }
 
-header {
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    background: #ffffff;
+    z-index: 1000;
+
+    background: #fff;
     border-bottom: 1px solid #e9e9e9;
 }
-
 .header-container {
     width: 100%;
     padding: 10px 24px;
@@ -50,12 +58,12 @@ header {
     margin: 0;
 }
 
-.hero {
-
+.hero{
     position: relative;
 
     width: 100%;
     height: calc(100vh - 71px);
+    margin-top: 71px;
 
     background-image: url("img/portada.png");
     background-size: cover;
@@ -63,7 +71,6 @@ header {
 
     display: flex;
     align-items: center;
-
 }
 
 .overlay {
