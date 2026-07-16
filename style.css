@@ -301,6 +301,10 @@ footer h2 {
     background: #25d366;
 }
 
+.whatsapp-c {
+    background: #20b959;
+}
+
 .footer-links a:hover {
     transition: .3s;
     transform: translateY(-3px);
