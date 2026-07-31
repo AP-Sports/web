@@ -32,19 +32,76 @@ header{
 
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
-.header-container {
+.header-container{
+
+    position: relative;
+
     width: 100%;
+
     padding: 10px 24px;
+
     display: flex;
+
     align-items: center;
+
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 14px;
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    color:#132a4c;
+
+    z-index:2;
 
     text-decoration: none;
+
+}
+
+.menu{
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.menu a{
+
+    color:#666666;
+
+    font-weight:400;
+
+    text-decoration:none;
+
+    transition:.25s;
+
+}
+
+.menu span{
+
+    color:#666666;
+
+    opacity:.6;
+
+}
+
+.menu a:hover{
+
+    color:#132a4c;
+
 }
 
 .logo img {
@@ -182,6 +239,12 @@ header{
 }
 
 @media (max-width:768px) {
+
+        .menu{
+
+        display:none;
+
+    }
 
     .hero {
 
