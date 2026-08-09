@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>
+AP Sports - Editar producto
+</title>
+
+
+<link rel="stylesheet" href="admin.css">
+
+
+</head>
+
+
+
+<body class="auth-checking">
+
+
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+
+
+<div class="admin-layout">
+
+
+
+<!-- BARRA LATERAL -->
+
+
+<aside class="sidebar">
+
+
+<button class="menu-close" id="menuClose">
+✕
+</button>
+
+
+
+<div class="logo">
+
+<img src="../img/Logo.png" alt="AP Sports">
+
+</div>
+
+
+
+<nav>
+
+
+<a href="index.html">
+
+<span>⌂</span>
+
+Inicio
+
+</a>
+
+
+
+<a href="productos.html" class="active">
+
+<span>▣</span>
+
+Productos
+
+</a>
+
+
+
+<a href="#">
+
+<span>▧</span>
+
+Imágenes
+
+</a>
+
+
+
+<a href="#">
+
+<span>⚙</span>
+
+Configuración
+
+</a>
+
+
+
+</nav>
+
+
+
+
+<div class="sidebar-bottom">
+
+
+<a href="../index.html">
+
+← Volver a la web
+
+</a>
+
+
+</div>
+
+
+
+</aside>
+
+
+
+
+
+<!-- CONTENIDO -->
+
+
+<main class="main-content">
+
+
+
+
+
+<header class="topbar">
+
+
+<button class="menu-toggle" id="menuToggle">
+
+☰
+
+</button>
+
+
+
+
+<div class="topbar-title">
+
+
+<h1>
+
+Editar producto
+
+</h1>
+
+
+
+<p>
+
+Modificar información del producto
+
+</p>
+
+
+</div>
+
+
+
+
+<button class="logout-btn">
+
+Cerrar sesión
+
+</button>
+
+
+
+</header>
+
+
+
+
+
+
+
+<section class="dashboard">
+
+
+
+<div class="quick-actions">
+
+
+
+<h2>
+
+Editar producto
+
+</h2>
+
+
+
+
+
+<form id="editProductForm">
+
+
+
+
+
+<label>
+
+Nombre
+
+</label>
+
+
+<input
+type="text"
+id="nombre"
+required
+>
+
+
+
+
+
+
+
+<label>
+
+Descripción
+
+</label>
+
+
+
+<textarea
+id="descripcion"
+required
+></textarea>
+
+
+
+
+
+
+
+<label>
+
+Imagen del producto
+
+</label>
+
+
+
+<label class="upload-image-btn">
+
+
+📷 Seleccionar imagen nueva
+
+
+
+<input
+
+type="file"
+
+id="imagenArchivo"
+
+accept="image/*"
+
+>
+
+
+</label>
+
+
+
+
+<p id="imagenNombre">
+
+No se seleccionó una nueva imagen
+
+</p>
+
+
+
+
+
+
+
+<label>
+
+Mensaje de WhatsApp
+
+</label>
+
+
+
+<textarea
+id="mensaje"
+required
+></textarea>
+
+
+
+
+
+
+
+
+<label class="checkbox">
+
+
+<input
+
+type="checkbox"
+
+id="activo"
+
+>
+
+
+Mostrar producto
+
+
+</label>
+
+
+
+
+
+
+
+<button
+
+type="submit"
+
+class="primary-btn"
+
+>
+
+
+Guardar cambios
+
+
+</button>
+
+
+
+
+
+</form>
+
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+</main>
+
+
+
+
+</div>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="admin.js"></script>
+
+
+<script src="editar-producto.js"></script>
+
+
+
+</body>
+
+</html>
