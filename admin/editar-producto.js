@@ -4,42 +4,37 @@ const params = new URLSearchParams(
 
 const id = params.get("id");
 
-const form = document.getElementById("editProductForm");
-
+const form =
+    document.getElementById("editProductForm");
 
 let productoActual = null;
 
 
+// CARGAR PRODUCTO
 
 async function cargarProducto() {
 
-
-    const { data, error } = await supabaseClient
-
+    const { data, error } =
+        await supabaseClient
         .from("productos")
-
         .select("*")
-
         .eq("id", id)
-
         .single();
 
 
-
-    if(error){
+    if (error) {
 
         console.error(error);
 
-        alert("Error cargando producto");
+        alert(
+            "Error cargando producto"
+        );
 
         return;
-
     }
 
 
-
     productoActual = data;
-
 
 
     document.getElementById("nombre").value =
@@ -50,180 +45,197 @@ async function cargarProducto() {
         data.descripcion;
 
 
-    document.getElementById("mensaje").value =
-        data.mensaje || "";
-
-
     document.getElementById("activo").checked =
         data.activo;
-
 
 }
 
 
-
+// GUARDAR CAMBIOS
 
 form.addEventListener(
-"submit",
-async function(e){
+    "submit",
+    async function(e) {
+
+        e.preventDefault();
 
 
-    e.preventDefault();
+        // IMAGEN ACTUAL
+
+        let imagenURL =
+            productoActual.imagen || "";
 
 
+        // IMAGEN NUEVA
 
-    let imagenURL =
-        productoActual.imagen || "";
-
-
-
-    const archivo =
-        document.getElementById("imagenArchivo").files[0];
+        const archivo =
+            document
+            .getElementById("imagenArchivo")
+            .files[0];
 
 
+        if (archivo) {
 
-    // Si eligió una imagen nueva
-
-    if(archivo){
-
-
-
-        const nombreArchivo =
-            Date.now() + "-" + archivo.name;
+            const nombreArchivo =
+                Date.now() + "-" + archivo.name;
 
 
-
-        const { error: uploadError } =
-            await supabaseClient
-            .storage
-            .from("productos")
-            .upload(
-                nombreArchivo,
-                archivo
-            );
-
+            const { error: uploadError } =
+                await supabaseClient
+                .storage
+                .from("productos")
+                .upload(
+                    nombreArchivo,
+                    archivo
+                );
 
 
-        if(uploadError){
+            if (uploadError) {
+
+                console.error(
+                    uploadError
+                );
+
+                alert(
+                    "Error subiendo imagen"
+                );
+
+                return;
+            }
 
 
-            console.error(uploadError);
+            const { data } =
+                supabaseClient
+                .storage
+                .from("productos")
+                .getPublicUrl(
+                    nombreArchivo
+                );
 
-            alert(
-                "Error subiendo imagen"
-            );
 
-            return;
-
+            imagenURL =
+                data.publicUrl;
         }
 
 
+        // NOMBRE ACTUAL
 
-        const { data } =
-            supabaseClient
-            .storage
-            .from("productos")
-            .getPublicUrl(nombreArchivo);
-
-
-
-        imagenURL =
-            data.publicUrl;
+        const nombre =
+            document
+            .getElementById("nombre")
+            .value
+            .trim();
 
 
-    }
+        // MENSAJE AUTOMÁTICO
+
+        const mensaje =
+            `Hola! Quisiera solicitar un presupuesto por "${nombre}".`;
 
 
+        // PRODUCTO
+
+        const producto = {
+
+            nombre: nombre,
+
+            descripcion:
+                document
+                .getElementById("descripcion")
+                .value
+                .trim(),
+
+            imagen:
+                imagenURL,
+
+            mensaje:
+                mensaje,
+
+            activo:
+                document
+                .getElementById("activo")
+                .checked
+
+        };
 
 
-    const producto = {
-
-
-        nombre:
-        document.getElementById("nombre").value.trim(),
-
-
-        descripcion:
-        document.getElementById("descripcion").value.trim(),
-
-
-        imagen:
-        imagenURL,
-
-
-        mensaje:
-        document.getElementById("mensaje").value.trim(),
-
-
-        activo:
-        document.getElementById("activo").checked
-
-
-    };
-
-
-
-
-    const { error } =
-        await supabaseClient
-
-        .from("productos")
-
-        .update(producto)
-
-        .eq("id", id);
-
-
-
-
-    if(error){
-
-
-        console.error(error);
-
-        alert(
-            "Error actualizando producto"
+        console.log(
+            "Producto actualizado:",
+            producto
         );
 
-        return;
+
+        // ACTUALIZAR SUPABASE
+
+        const { error } =
+            await supabaseClient
+            .from("productos")
+            .update(producto)
+            .eq("id", id);
+
+
+        if (error) {
+
+            console.error(error);
+
+            alert(
+                "Error actualizando producto"
+            );
+
+            return;
+        }
+
+
+        alert(
+            "Producto actualizado correctamente"
+        );
+
+
+        window.location.href =
+            "productos.html";
 
     }
+);
 
 
-
-
-    alert(
-        "Producto actualizado correctamente"
-    );
-
-
-    window.location.href =
-        "productos.html";
-
-
-
-});
-
-
+// CARGAR
 
 cargarProducto();
 
-const inputImagen = document.getElementById("imagenArchivo");
-const textoImagen = document.getElementById("imagenNombre");
+
+// MOSTRAR NOMBRE DE IMAGEN
+
+const inputImagen =
+    document.getElementById(
+        "imagenArchivo"
+    );
+
+const textoImagen =
+    document.getElementById(
+        "imagenNombre"
+    );
 
 
-inputImagen.addEventListener("change", function(){
+if (inputImagen) {
 
-    if(this.files.length > 0){
+    inputImagen.addEventListener(
+        "change",
+        function() {
 
-        textoImagen.textContent =
-            "Imagen seleccionada: " + this.files[0].name;
+            if (this.files.length > 0) {
 
-    } else {
+                textoImagen.textContent =
+                    "Imagen seleccionada: " +
+                    this.files[0].name;
 
-        textoImagen.textContent =
-            "No se seleccionó una nueva imagen";
+            } else {
 
-    }
+                textoImagen.textContent =
+                    "No se seleccionó una nueva imagen";
 
-});
+            }
+
+        }
+    );
+
+}
