@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Sports - Agregar producto</title>
+
+    <link rel="stylesheet" href="admin.css">
+
+</head>
+
+
+<body class="auth-checking">
+
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+
+    <div class="admin-layout">
+
+
+        <aside class="sidebar">
+
+
+            <button class="menu-close" id="menuClose">
+                ✕
+            </button>
+
+
+            <div class="logo">
+
+                <img src="../img/Logo.png" alt="AP Sports">
+
+            </div>
+
+
+
+            <nav>
+
+                <a href="index.html">
+                    <span>⌂</span>
+                    Inicio
+                </a>
+
+
+                <a href="productos.html" class="active">
+                    <span>▣</span>
+                    Productos
+                </a>
+
+
+                <a href="#">
+                    <span>▧</span>
+                    Imágenes
+                </a>
+
+
+                <a href="#">
+                    <span>⚙</span>
+                    Configuración
+                </a>
+
+
+            </nav>
+
+
+
+            <div class="sidebar-bottom">
+
+                <a href="../index.html">
+                    ← Volver a la web
+                </a>
+
+            </div>
+
+
+        </aside>
+
+
+
+
+        <main class="main-content">
+
+
+            <header class="topbar">
+
+
+                <button class="menu-toggle" id="menuToggle">
+                    ☰
+                </button>
+
+
+                <div class="topbar-title">
+
+                    <h1>
+                        Agregar producto
+                    </h1>
+
+                    <p>
+                        Crear un nuevo producto para AP Sports
+                    </p>
+
+                </div>
+
+
+                <button class="logout-btn">
+                    Cerrar sesión
+                </button>
+
+
+            </header>
+
+
+
+
+            <section class="dashboard">
+
+
+                <div class="quick-actions">
+
+
+                    <h2>
+                        Nuevo producto
+                    </h2>
+
+
+                    <form id="productForm">
+
+
+                        <label>
+                            Nombre
+                        </label>
+
+                        <input type="text" id="nombre" required>
+
+
+
+                        <label>
+                            Descripción
+                        </label>
+
+
+                        <textarea id="descripcion" required></textarea>
+
+
+                        <label class="upload-image-btn">
+
+                            📷 Seleccionar imagen
+
+                            <input type="file" id="imagenArchivo" accept="image/*">
+
+                        </label>
+
+                        <p id="imagenNombre">
+                            Ninguna imagen seleccionada
+                        </p>
+
+
+
+
+                        <label class="checkbox">
+
+                            <input type="checkbox" id="activo" checked>
+
+                            Mostrar producto
+
+                        </label>
+
+
+
+
+                        <button type="submit" class="primary-btn">
+
+                            Guardar producto
+
+                        </button>
+
+
+                    </form>
+
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="admin.js"></script>
+
+    <script src="productos.js"></script>
+
+
+</body>
+
+</html>
