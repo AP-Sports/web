@@ -1109,3 +1109,18 @@ form textarea:focus {
     width: auto;
     margin: 0;
 }
+
+.stats-pages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.stats-pages .action-card {
+    width: 300px;
+    flex: 0 0 300px;
+}
+
+.stats-container {
+    max-width: 700px;
+}
