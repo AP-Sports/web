@@ -3,383 +3,245 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Editar producto - AP Sports</title>
 
-<title>
-AP Sports - Editar producto
-</title>
-
-
-<link rel="stylesheet" href="admin.css">
-
+    <link rel="stylesheet" href="admin.css">
 
 </head>
 
+<body>
 
 
-<body class="auth-checking">
+    <div class="menu-overlay" id="menuOverlay"></div>
 
 
+    <div class="admin-layout">
 
-<div class="menu-overlay" id="menuOverlay"></div>
 
+        <!-- BARRA LATERAL -->
 
+        <aside class="sidebar">
 
-<div class="admin-layout">
+            <button class="menu-close" id="menuClose">
+                ✕
+            </button>
 
 
+            <div class="logo">
 
-<!-- BARRA LATERAL -->
+                <img src="../img/Logo.png" alt="AP Sports">
 
+            </div>
 
-<aside class="sidebar">
 
+            <nav>
 
-<button class="menu-close" id="menuClose">
-✕
-</button>
+                <a href="index.html">
+                    <span>⌂</span>
+                    Inicio
+                </a>
 
 
+                <a href="productos.html">
+                    <span>▣</span>
+                    Productos
+                </a>
 
-<div class="logo">
 
-<img src="../img/Logo.png" alt="AP Sports">
+                <a href="#">
+                    <span>▧</span>
+                    Imágenes
+                </a>
 
-</div>
 
+                <a href="#">
+                    <span>⚙</span>
+                    Configuración
+                </a>
 
+            </nav>
 
-<nav>
 
+            <div class="sidebar-bottom">
 
-<a href="index.html">
+                <a href="../index.html">
+                    ← Volver a la web
+                </a>
 
-<span>⌂</span>
+            </div>
 
-Inicio
+        </aside>
 
-</a>
 
 
+        <!-- CONTENIDO PRINCIPAL -->
 
-<a href="productos.html" class="active">
+        <main class="main-content">
 
-<span>▣</span>
 
-Productos
+            <!-- BARRA SUPERIOR -->
 
-</a>
+            <header class="topbar">
 
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                >
+                    ☰
+                </button>
 
 
-<a href="#">
+                <div class="topbar-title">
 
-<span>▧</span>
+                    <h1>
+                        Editar producto
+                    </h1>
 
-Imágenes
+                    <p>
+                        Modificar información del producto
+                    </p>
 
-</a>
+                </div>
 
 
+                <button class="logout-btn">
 
-<a href="#">
+                    Cerrar sesión
 
-<span>⚙</span>
+                </button>
 
-Configuración
+            </header>
 
-</a>
 
 
+            <!-- CONTENIDO -->
 
-</nav>
+            <section class="dashboard">
 
 
+                <div class="quick-actions">
 
 
-<div class="sidebar-bottom">
+                    <div class="products-header">
 
+                        <h2>
+                            Editar producto
+                        </h2>
 
-<a href="../index.html">
+                    </div>
 
-← Volver a la web
 
-</a>
+                    <form
+                        id="editProductForm"
+                        class="product-form"
+                    >
 
 
-</div>
+                        <!-- NOMBRE -->
 
+                        <label for="nombre">
+                            Nombre
+                        </label>
 
+                        <input
+                            type="text"
+                            id="nombre"
+                            required
+                        >
 
-</aside>
 
 
+                        <!-- DESCRIPCIÓN -->
 
+                        <label for="descripcion">
+                            Descripción
+                        </label>
 
+                        <textarea
+                            id="descripcion"
+                            required
+                        ></textarea>
 
-<!-- CONTENIDO -->
 
 
-<main class="main-content">
+                        <!-- IMAGEN -->
 
+                        <label>
+                            Imagen del producto
+                        </label>
 
 
+                        <label class="upload-image-btn">
 
+                            📷 Seleccionar imagen nueva
 
-<header class="topbar">
+                            <input
+                                type="file"
+                                id="imagenArchivo"
+                                accept="image/*"
+                            >
 
+                        </label>
 
-<button class="menu-toggle" id="menuToggle">
 
-☰
+                        <p id="imagenNombre">
+                            No se seleccionó una nueva imagen
+                        </p>
 
-</button>
 
 
+                        <!-- PRODUCTO ACTIVO -->
 
+                        <label class="checkbox">
 
-<div class="topbar-title">
+                            <input
+                                type="checkbox"
+                                id="activo"
+                            >
 
+                            Mostrar producto
 
-<h1>
+                        </label>
 
-Editar producto
 
-</h1>
 
+                        <!-- GUARDAR -->
 
+                        <button
+                            type="submit"
+                            class="primary-btn"
+                        >
+                            Guardar cambios
+                        </button>
 
-<p>
 
-Modificar información del producto
+                    </form>
 
-</p>
 
+                </div>
 
-</div>
 
+            </section>
 
 
+        </main>
 
-<button class="logout-btn">
 
-Cerrar sesión
+    </div>
 
-</button>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-</header>
+    <script src="supabase.js"></script>
 
+    <script src="admin.js"></script>
 
-
-
-
-
-
-<section class="dashboard">
-
-
-
-<div class="quick-actions">
-
-
-
-<h2>
-
-Editar producto
-
-</h2>
-
-
-
-
-
-<form id="editProductForm">
-
-
-
-
-
-<label>
-
-Nombre
-
-</label>
-
-
-<input
-type="text"
-id="nombre"
-required
->
-
-
-
-
-
-
-
-<label>
-
-Descripción
-
-</label>
-
-
-
-<textarea
-id="descripcion"
-required
-></textarea>
-
-
-
-
-
-
-
-<label>
-
-Imagen del producto
-
-</label>
-
-
-
-<label class="upload-image-btn">
-
-
-📷 Seleccionar imagen nueva
-
-
-
-<input
-
-type="file"
-
-id="imagenArchivo"
-
-accept="image/*"
-
->
-
-
-</label>
-
-
-
-
-<p id="imagenNombre">
-
-No se seleccionó una nueva imagen
-
-</p>
-
-
-
-
-
-
-
-<label>
-
-Mensaje de WhatsApp
-
-</label>
-
-
-
-<textarea
-id="mensaje"
-required
-></textarea>
-
-
-
-
-
-
-
-
-<label class="checkbox">
-
-
-<input
-
-type="checkbox"
-
-id="activo"
-
->
-
-
-Mostrar producto
-
-
-</label>
-
-
-
-
-
-
-
-<button
-
-type="submit"
-
-class="primary-btn"
-
->
-
-
-Guardar cambios
-
-
-</button>
-
-
-
-
-
-</form>
-
-
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-</main>
-
-
-
-
-</div>
-
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-
-<script src="admin.js"></script>
-
-
-<script src="editar-producto.js"></script>
-
+    <script src="editar-producto.js"></script>
 
 
 </body>
