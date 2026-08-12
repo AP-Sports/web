@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AP Sports - Estadísticas</title>
+
+    <link
+        rel="stylesheet"
+        href="admin.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="admin-layout">
+
+
+    <!-- BARRA LATERAL -->
+
+    <aside class="sidebar">
+
+
+        <button
+            class="menu-close"
+            id="menuClose"
+        >
+            ✕
+        </button>
+
+
+        <div class="logo">
+
+            <img
+                src="../img/Logo.png"
+                alt="AP Sports"
+            >
+
+        </div>
+
+
+        <nav>
+
+
+            <a href="index.html">
+
+                <span>⌂</span>
+
+                Inicio
+
+            </a>
+
+
+            <a href="productos.html">
+
+                <span>▣</span>
+
+                Productos
+
+            </a>
+
+
+            <a
+                href="estadisticas.html"
+                class="active"
+            >
+
+                <span>▥</span>
+
+                Estadísticas
+
+            </a>
+
+
+            <a href="#">
+
+                <span>⚙</span>
+
+                Configuración
+
+            </a>
+
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+
+            <a href="../index.html">
+
+                ← Volver a la web
+
+            </a>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- CONTENIDO -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+            >
+                ☰
+            </button>
+
+
+            <div class="topbar-title">
+
+                <h1>
+                    Estadísticas
+                </h1>
+
+                <p>
+                    Visitas de tu página web
+                </p>
+
+            </div>
+
+
+            <button class="logout-btn">
+
+                Cerrar sesión
+
+            </button>
+
+
+        </header>
+
+
+
+        <!-- DASHBOARD -->
+
+        <section class="dashboard">
+
+
+            <div class="welcome">
+
+                <h2>
+                    Estadísticas de la web
+                </h2>
+
+                <p>
+                    Consultá las visitas registradas
+                    en tu página de AP Sports.
+                </p>
+
+            </div>
+
+
+
+            <!-- ESTADÍSTICAS PRINCIPALES -->
+
+            <div class="stats">
+
+
+                <div class="stat-card">
+
+                    <span class="stat-icon">
+                        ●
+                    </span>
+
+                    <div>
+
+                        <p>
+                            Visitantes
+                        </p>
+
+                        <strong id="visitantes">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <span class="stat-icon">
+                        ▥
+                    </span>
+
+                    <div>
+
+                        <p>
+                            Visitas
+                        </p>
+
+                        <strong id="visitas">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- PÁGINAS -->
+
+            <div class="quick-actions stats-containers">
+
+
+                <h2>
+                    Páginas visitadas
+                </h2>
+
+
+                <div
+                    class="action-grid stats-pages"
+                    id="paginas"
+                >
+
+                    <p>
+                        Cargando estadísticas...
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="admin.js"></script>
+
+<script
+    src="estadisticas.js"
+></script>
+
+
+</body>
+
+</html>
