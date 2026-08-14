@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AP Sports - Productos destacados</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../img/Logo.png"
+    >
+
+    <link
+        rel="stylesheet"
+        href="admin.css"
+    >
+
+</head>
+
+
+<body class="auth-checking">
+
+
+    <!-- MENÚ MÓVIL -->
+
+    <div
+        class="menu-overlay"
+        id="menuOverlay"
+    ></div>
+
+
+    <div class="admin-layout">
+
+
+        <!-- BARRA LATERAL -->
+
+        <aside class="sidebar">
+
+
+            <button
+                class="menu-close"
+                id="menuClose"
+            >
+                ✕
+            </button>
+
+
+            <div class="logo">
+
+                <img
+                    src="../img/Logo.png"
+                    alt="AP Sports"
+                >
+
+            </div>
+
+
+            <nav>
+
+
+                <a href="index.html">
+
+                    <span>⌂</span>
+
+                    Inicio
+
+                </a>
+
+
+                <a href="productos.html">
+
+                    <span>▣</span>
+
+                    Productos
+
+                </a>
+
+
+                <a href="estadisticas.html">
+
+                    <span>▥</span>
+
+                    Estadísticas
+
+                </a>
+
+
+                <a
+                    href="productos-destacados.html"
+                    class="active"
+                >
+
+                    <span>★</span>
+
+                    Productos destacados
+
+                </a>
+
+
+                <a href="#">
+
+                    <span>⚙</span>
+
+                    Configuración
+
+                </a>
+
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <a href="../index.html">
+
+                    ← Volver a la web
+
+                </a>
+
+            </div>
+
+
+        </aside>
+
+
+
+        <!-- CONTENIDO PRINCIPAL -->
+
+        <main class="main-content">
+
+
+            <!-- BARRA SUPERIOR -->
+
+            <header class="topbar">
+
+
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                >
+                    ☰
+                </button>
+
+
+                <div class="topbar-title">
+
+                    <h1>
+                        Productos destacados
+                    </h1>
+
+                    <p>
+                        Elegí qué productos aparecen en la página principal
+                    </p>
+
+                </div>
+
+
+                <button class="logout-btn">
+
+                    Cerrar sesión
+
+                </button>
+
+
+            </header>
+
+<section class="dashboard">
+
+    <!-- =========================
+         DASHBOARD ORDEN
+    ========================== -->
+
+    <div class="dashboard-orden">
+
+        <div class="quick-actions">
+
+            <div class="products-header">
+
+                <div>
+
+                    <h2>
+                        Productos destacados
+                    </h2>
+
+                    <p>
+                        Seleccioná hasta 4 y arrastralos para cambiar el orden.
+                    </p>
+
+                </div>
+
+                <span
+                    id="contadorDestacados"
+                    class="featured-counter"
+                >
+                    0 / 4
+                </span>
+
+            </div>
+
+
+            <div
+                id="productosDestacados"
+                class="featured-products-admin"
+            >
+
+                <p>
+                    Cargando productos destacados...
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         DASHBOARD PRODUCTOS
+    ========================== -->
+
+    <div class="dashboard-productos">
+
+        <div class="quick-actions">
+
+            <div class="products-header">
+
+                <div>
+
+                    <h2>
+                        Todos los productos
+                    </h2>
+
+                    <p>
+                        Marcá los productos que quieras mostrar.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="todosLosProductos"
+                class="products-selection"
+            >
+
+                <p>
+                    Cargando productos...
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         GUARDAR
+    ========================== -->
+
+    <div class="featured-save-container">
+
+        <button
+            id="guardarDestacados"
+            class="primary-btn"
+        >
+
+            Guardar cambios
+
+        </button>
+
+
+        <p id="mensajeGuardado"></p>
+
+    </div>
+
+</section>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <!-- SUPABASE -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <!-- ADMIN
+         CREA supabaseClient -->
+
+    <script src="admin.js"></script>
+
+
+    <!-- PRODUCTOS DESTACADOS -->
+
+    <script src="productos-destacados.js"></script>
+
+
+</body>
+
+</html>

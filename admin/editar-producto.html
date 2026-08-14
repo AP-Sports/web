@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Editar producto - AP Sports</title>
+
+    <link rel="icon" type="image/png" href="../img/Logo.png">
+
+    <link rel="stylesheet" href="admin.css">
+
+</head>
+
+<body>
+
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+
+    <div class="admin-layout">
+
+
+        <!-- BARRA LATERAL -->
+
+        <aside class="sidebar">
+
+            <button class="menu-close" id="menuClose">
+                ✕
+            </button>
+
+
+            <div class="logo">
+
+                <img src="../img/Logo.png" alt="AP Sports">
+
+            </div>
+
+
+            <nav>
+
+                <a href="index.html">
+                    <span>⌂</span>
+                    Inicio
+                </a>
+
+
+                <a href="productos.html">
+                    <span>▣</span>
+                    Productos
+                </a>
+
+
+                <a href="#">
+                    <span>▧</span>
+                    Imágenes
+                </a>
+
+                                                <a
+                    href="productos-destacados.html"
+                >
+
+                    <span>★</span>
+
+                    Productos destacados
+
+                </a>
+
+                <a href="#">
+                    <span>⚙</span>
+                    Configuración
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <a href="../index.html">
+                    ← Volver a la web
+                </a>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- CONTENIDO PRINCIPAL -->
+
+        <main class="main-content">
+
+
+            <!-- BARRA SUPERIOR -->
+
+            <header class="topbar">
+
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                >
+                    ☰
+                </button>
+
+
+                <div class="topbar-title">
+
+                    <h1>
+                        Editar producto
+                    </h1>
+
+                    <p>
+                        Modificar información del producto
+                    </p>
+
+                </div>
+
+
+                <button class="logout-btn">
+
+                    Cerrar sesión
+
+                </button>
+
+            </header>
+
+
+
+            <!-- CONTENIDO -->
+
+            <section class="dashboard">
+
+
+                <div class="quick-actions">
+
+
+                    <div class="products-header">
+
+                        <h2>
+                            Editar producto
+                        </h2>
+
+                    </div>
+
+
+                    <form
+                        id="editProductForm"
+                        class="product-form"
+                    >
+
+
+                        <!-- NOMBRE -->
+
+                        <label for="nombre">
+                            Nombre
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nombre"
+                            required
+                        >
+
+
+
+                        <!-- DESCRIPCIÓN -->
+
+                        <label for="descripcion">
+                            Descripción
+                        </label>
+
+                        <textarea
+                            id="descripcion"
+                            required
+                        ></textarea>
+
+
+
+                        <!-- IMAGEN -->
+
+                        <label>
+                            Imagen del producto
+                        </label>
+
+
+                        <label class="upload-image-btn">
+
+                            📷 Seleccionar imagen nueva
+
+                            <input
+                                type="file"
+                                id="imagenArchivo"
+                                accept="image/*"
+                            >
+
+                        </label>
+
+
+                        <p id="imagenNombre">
+                            No se seleccionó una nueva imagen
+                        </p>
+
+
+
+                        <!-- PRODUCTO ACTIVO -->
+
+                        <label class="checkbox">
+
+                            <input
+                                type="checkbox"
+                                id="activo"
+                            >
+
+                            Mostrar producto
+
+                        </label>
+
+
+
+                        <!-- GUARDAR -->
+
+                        <button
+                            type="submit"
+                            class="primary-btn"
+                        >
+                            Guardar cambios
+                        </button>
+
+
+                    </form>
+
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="supabase.js"></script>
+
+    <script src="admin.js"></script>
+
+    <script src="editar-producto.js"></script>
+
+
+</body>
+
+</html>
